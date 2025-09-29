@@ -7,6 +7,7 @@ import Templates from "./views/Templates";
 import Analytics from "./views/Analytics";
 import ProjectDetail from "./views/ProjectDetail";
 import sampleProjects from "./data/projects";
+import About from "./views/About"; // <-- new
 
 export default function App() {
   const [view, setView] = useState("overview");
@@ -62,6 +63,7 @@ export default function App() {
           {view === "lca-form" && <LCAForm onSave={(p) => { addOrUpdateProject(p); setView("overview"); }} />}
           {view === "templates" && <Templates onCreate={(template) => { addOrUpdateProject(template); setView("lca-form"); }} />}
           {view === "analytics" && <Analytics projects={projects} />}
+          {view === "about" && <About />} {/* <-- new */}
           {view === "project-detail" && selectedProject && (
             <ProjectDetail
               project={selectedProject}
